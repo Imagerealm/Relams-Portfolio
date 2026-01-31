@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETMFB and CGIL Graphic Designs| Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1> ETMFB and CGIL Graphic Designs</h1>
+    <p>Graphic Designs</p>
+  </header>
+
+  <!-- Gallery -->
+  <div class="gallery">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.51 pm.jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.52 pm.jpeg" alt="rideshare 2">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.53 pm (1).jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.53 pm (2).jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.53 pm.jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.54 pm (1).jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.54 pm (2).jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.54 pm (3).jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/WhatsApp Image 2026-01-31 at 5.06.54 pm.jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/last1.jpeg" alt="rideshare 1">
+      <img src="EmpireandCitygate/0df88063-37d0-41ad-a7cf-f3a6380a56fc.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/3724e47f-0736-4491-9fce-364ec8ab1ce9.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/adb1bba7-4995-4813-aae1-041e7548fcad.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire1.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire2.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire4.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire5.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire6.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire7.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire8.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire9.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire10.JPG" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire11.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire12.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire13.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire14.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire15.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire16.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire17.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire18.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire19.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/Empire20.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/1.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/2.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/3.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/4.png" alt="rideshare 1">
+      <img src="EmpireandCitygate/5.png" alt="rideshare 1">
+  
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="next">&#10095;</span>
+  </div>
+
+  <a href="index.html" class="back-link">⬅ Back to Portfolio</a>
+
+  <footer>
+    <p>© 2026 Ayooluwa Olagunju | Portfolio</p>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox .close");
+    const nextBtn = document.querySelector(".lightbox .next");
+    const prevBtn = document.querySelector(".lightbox .prev");
+    const galleryImages = document.querySelectorAll(".gallery img");
+
+    let currentIndex = 0;
+
+    // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        currentIndex = index;
+      });
+    });
+
+    // Close
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    // Background click
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+
+    // Next
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Prev
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Keyboard controls
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") nextBtn.click();
+        if (e.key === "ArrowLeft") prevBtn.click();
+        if (e.key === "Escape") closeBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

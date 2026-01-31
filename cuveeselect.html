@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuvee Select Designs and IG highlights< – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Cuvee Select Designs and IG highlights</h1>
+    <p> Graphic Designs and IG highlights</p>
+  </header>
+
+  <div class="Havencare-Gallery">
+    <img src="Cuvee-Select/Cuvee1.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee2.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee3.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee4.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee5.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee6.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee7.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee8.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee9.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee10.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee11.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee12.JPG" alt="EventRealm 1">
+    <img src="Cuvee-Select/Cuvee13.JPG" alt="EventRealm 1">
+
+  </div>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="next">&#10095;</span>
+  </div>
+  
+  
+
+  <a href="index.html" class="back-link">⬅ Back to Portfolio</a>
+
+  <footer>
+    <p>© 2026 Ayooluwa Olagunju | Portfolio</p>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox .close");
+    const nextBtn = document.querySelector(".lightbox .next");
+    const prevBtn = document.querySelector(".lightbox .prev");
+    const galleryImages = document.querySelectorAll(".Havencare-Gallery img");
+
+    let currentIndex = 0;
+
+    // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        currentIndex = index;
+      });
+    });
+
+    // Close with X
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    // Close when clicking outside image
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+
+    // Next button
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Prev button
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Keyboard controls
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") {
+          nextBtn.click();
+        } else if (e.key === "ArrowLeft") {
+          prevBtn.click();
+        } else if (e.key === "Escape") {
+          closeBtn.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
